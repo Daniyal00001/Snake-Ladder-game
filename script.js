@@ -11,11 +11,11 @@ let winner = document.querySelector(".winner");
 let button = document.querySelector(".button");
 let innertext = document.querySelector(".innertext")
 let allimages = [
-    "face1.JPEG",
+    "face1.png",
     "face2.png",
     "face3.png",
-    "face4.JPEG",
-    "face5.JPEG",
+    "face4.png",
+    "face5.png",
     "face6.png"
 ];
 
