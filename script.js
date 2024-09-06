@@ -147,9 +147,7 @@ let moving = (randomIndex) => {
 //   mover.style.left = `${left}px`;
 // };
 
-// button.addEventListener("click", () => {
-//   window.location.reload();
-// });
+
 
 let moveToGridPosition = (mover, score) => {
   // Get the current size of the board dynamically
@@ -208,3 +206,7 @@ let moveToGridPosition = (mover, score) => {
   mover.style.top = `${top}px`;
   mover.style.left = `${left}px`;
 };
+
+button.addEventListener("click", () => {
+  window.location.reload();
+});

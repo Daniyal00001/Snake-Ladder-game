@@ -327,8 +327,8 @@ button:active {
     }
 
     .board {
-        height: 250px;
-        width: 250px;
+        height: 320px;
+        width: 320px;
     }
 
     .dice img {
@@ -337,18 +337,18 @@ button:active {
     }
 
     .move1 {
-        height: 20px;
-        width: 20px;
-        top: 242px;
-        left: -46px;
-        /* top : 10000px; */
+        height: 30px;
+        width: 30px;
+        top: 342px;
+        left: 38px;
+      
     }
 
     .move2 {
-        height: 20px;
-        width: 20px;
-        top: 242px;
-        left: -66px;
+        height: 30px;
+        width: 30px;
+        top: 342px;
+        left: 8px;
     }
 
     .heading {
