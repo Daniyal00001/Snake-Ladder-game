@@ -91,8 +91,71 @@ let moving = (randomIndex) => {
 };
 
 
+// let moveToGridPosition = (mover, score) => {
+//   // if (score > 100) {return} ;
+
+//   // Handle snakes and ladders
+//   if (score == 1) score = 38;
+//   if (score == 4) score = 14;
+//   if (score == 8) score = 10;
+//   if (score == 21) score = 42;
+//   if (score == 28) score = 76;
+//   if (score == 50) score = 67;
+//   if (score == 71) score = 92;
+//   if (score == 80) score = 99;
+//   if (score == 32) score = 10;
+//   if (score == 36) score = 6;
+//   if (score == 48) score = 26;
+//   if (score == 62) score = 18;
+//   if (score == 88) score = 24;
+//   if (score == 95) score = 56;
+//   if (score == 97) score = 78;
+//   if (!player1turn) {
+//     player1score = score; // Update player1score globally
+// } else {
+//     player2score = score; // Update player2score globally
+// }
+
+//  if (score == 100) {
+//   setTimeout(() => {
+//     const sound2 = new Audio("winning.mp3");
+//     sound2.play();
+//     container.classList.add("hide");
+//     winner.classList.remove("hide");
+//     innertext.innerText = `Congratulations, the winner is Player ${player1turn ? 1 : 2}!`;
+//   }, 1000); // 1-second delay before showing the winner
+// }
+
+//   console.log(`player1score is ${player1score}`);
+//   console.log(`player2score is ${player2score}`);
+
+//   // Calculate the row and column
+//   let row = Math.floor((score - 1) / 10);
+//   let column = (score - 1) % 10;
+
+//   // Reverse column number for odd rows to handle the zigzag
+//   if (row % 2 !== 0) {
+//       column = 9 - column;
+//   }
+
+//   // Calculate top and left based on row and column
+//   let top = (9 - row) * 50; // Adjust based on the grid size
+//   let left = column * 50;
+
+//   // Apply the top and left positions to move the piece smoothly
+//   mover.style.top = `${top}px`;
+//   mover.style.left = `${left}px`;
+// };
+
+// button.addEventListener("click", () => {
+//   window.location.reload();
+// });
+
 let moveToGridPosition = (mover, score) => {
-  // if (score > 100) {return} ;
+  // Get the current size of the board dynamically
+  let board = document.querySelector(".board");
+  let boardSize = board.offsetWidth; // Assuming the board is a square
+  let gridSize = boardSize / 10; // Divide the board size by 10 to get each cell size
 
   // Handle snakes and ladders
   if (score == 1) score = 38;
@@ -110,24 +173,23 @@ let moveToGridPosition = (mover, score) => {
   if (score == 88) score = 24;
   if (score == 95) score = 56;
   if (score == 97) score = 78;
+
   if (!player1turn) {
     player1score = score; // Update player1score globally
-} else {
+  } else {
     player2score = score; // Update player2score globally
-}
+  }
 
- if (score == 100) {
-  setTimeout(() => {
-    const sound2 = new Audio("winning.mp3");
-    sound2.play();
-    container.classList.add("hide");
-    winner.classList.remove("hide");
-    innertext.innerText = `Congratulations, the winner is Player ${player1turn ? 1 : 2}!`;
-  }, 1000); // 1-second delay before showing the winner
-}
-
-  console.log(`player1score is ${player1score}`);
-  console.log(`player2score is ${player2score}`);
+  // Check for winner
+  if (score == 100) {
+    setTimeout(() => {
+      const sound2 = new Audio("winning.mp3");
+      sound2.play();
+      container.classList.add("hide");
+      winner.classList.remove("hide");
+      innertext.innerText = `Congratulations, the winner is Player ${player1turn ? 1 : 2}!`;
+    }, 1000); // 1-second delay before showing the winner
+  }
 
   // Calculate the row and column
   let row = Math.floor((score - 1) / 10);
@@ -135,18 +197,14 @@ let moveToGridPosition = (mover, score) => {
 
   // Reverse column number for odd rows to handle the zigzag
   if (row % 2 !== 0) {
-      column = 9 - column;
+    column = 9 - column;
   }
 
   // Calculate top and left based on row and column
-  let top = (9 - row) * 50; // Adjust based on the grid size
-  let left = column * 50;
+  let top = (9 - row) * gridSize; // Adjust based on the dynamic grid size
+  let left = column * gridSize;
 
   // Apply the top and left positions to move the piece smoothly
   mover.style.top = `${top}px`;
   mover.style.left = `${left}px`;
 };
-
-button.addEventListener("click", () => {
-  window.location.reload();
-});
